@@ -29,7 +29,6 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -66,16 +65,6 @@
             messagingSenderId: "537544646420"
         };
         firebase.initializeApp(config);
-
-        firebase.auth().onAuthStateChanged(function (user) {
-            if (user) {
-                console.log("Usuario: " + JSON.stringify(user));
-                window.location.href = 'profile.html'
-            } else {
-                // User is signed out.
-                // ...
-            }
-        });
     </script>
 
     <script type="text/javascript" src="js/index.js"></script>

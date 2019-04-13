@@ -30,6 +30,9 @@ document.getElementById("log").addEventListener("click", function () {
     console.log("Valores: " + email + "  " + senha);
 
     firebase.auth().signInWithEmailAndPassword(email, senha)
+        .then(function (firebaseUser) {
+            console.log("Logado com sucesso");
+        })
         .catch(function (error) {
             console.error(error);
         });
