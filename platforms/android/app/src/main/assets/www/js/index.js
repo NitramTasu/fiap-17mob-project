@@ -18,16 +18,6 @@
  */
 // Initialize Firebase
 
-var config = {
-    apiKey: "AIzaSyBM4sh1o_agXdj7tprVpamVVw_ovIbMyII",
-    authDomain: "jokenpokemon-893d7.firebaseapp.com",
-    databaseURL: "https://jokenpokemon-893d7.firebaseio.com",
-    projectId: "jokenpokemon-893d7",
-    storageBucket: "jokenpokemon-893d7.appspot.com",
-    messagingSenderId: "537544646420"
-};
-firebase.initializeApp(config);
-
 function logar() {
     console.log("Logar");
 }
