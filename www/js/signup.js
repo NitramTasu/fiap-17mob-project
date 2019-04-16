@@ -22,7 +22,6 @@ function createUser(email, password, telefone) {
     });
 }
 
-
 function writeUserData(userId, telefone) {
     firebase.database().ref('users/' + userId).set({
         telefone: telefone

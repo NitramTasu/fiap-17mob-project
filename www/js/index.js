@@ -37,6 +37,17 @@ document.getElementById("log").addEventListener("click", function () {
         });
 });
 
+firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+        console.log("Usuario: " + JSON.stringify(user));
+        window.location.href = 'profile.html'
+
+    } else {
+        // User is signed out.
+        // ...
+    }
+});
+
 
 var app = {
     // Application Constructor

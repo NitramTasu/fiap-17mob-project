@@ -36,29 +36,32 @@
 
     <title>Hello World</title>
 </head>
-<script>
-</script>
+
+
 <body>
     <div class="app">
-       
+        <input type="button" value="Sair" id="logout" />
     </div>
 
     <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-auth.js"></script>
     <script src="https://cdn.firebase.com/libs/firebaseui/3.0.0/firebaseui.js"></script>
     <script>
-        var config = {
-            apiKey: "AIzaSyCCOJ2pcMGlxFiGisLXnIT9cbxwsB-UIHI",
-            authDomain: "jokenpokemon-893d7.firebaseapp.com",
-            databaseURL: "https://jokenpokemon-893d7.firebaseio.com",
-            projectId: "jokenpokemon-893d7",
-            storageBucket: "jokenpokemon-893d7.appspot.com",
-            messagingSenderId: "537544646420"
-        };
-        firebase.initializeApp(config);
-    </script>
 
+    </script>
+    <script>
+        document.getElementById("logout").addEventListener("click", function () {
+            console.log("clicou");
+            firebase.auth().signOut().then(function () {
+                window.location.href = 'index.html'
+            }).catch(function (error) {
+                console.log(error);
+            });
+        });
+    </script>
+    <script type="text/javascript" src="js/global.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+
 </body>
 
 </html>
