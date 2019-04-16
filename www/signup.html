@@ -29,7 +29,6 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -37,50 +36,45 @@
 
     <title>Hello World</title>
 </head>
-
 <script>
-
 </script>
 
 <body>
     <div class="app">
         <form method="POST">
-            <label for="lname">E-mail</label>
-            <input id="email" type="text" />
-            <label for="lname">Senha</label>
-            <input id="senha" type="text" />
-            <input type="button" value="Login" id="log" />
-            <a href="signup.html">Cadastrar</a>
+            <label for="email">E-mail:</label>
+            <input id="email" type="email" />
+            <label for="senha">Senha:</label>
+            <input id="senha" type="password" />
+            <label for="telefone">Telefone:</label>
+            <input id="telefone" type="text" />
+            <input type="button" value="Cadastrar" id="signup" />
+
         </form>
     </div>
 
     <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-database.js"></script>
     <script src="https://cdn.firebase.com/libs/firebaseui/3.0.0/firebaseui.js"></script>
     <script>
+
         var config = {
             apiKey: "AIzaSyCCOJ2pcMGlxFiGisLXnIT9cbxwsB-UIHI",
             authDomain: "jokenpokemon-893d7.firebaseapp.com",
-            databaseURL: "https://jokenpokemon-893d7.firebaseio.com",
+            databaseURL: "https://jokenpo-61b11.firebaseio.com/",
             projectId: "jokenpokemon-893d7",
             storageBucket: "jokenpokemon-893d7.appspot.com",
             messagingSenderId: "537544646420"
         };
         firebase.initializeApp(config);
+        var database = firebase.database();
 
-        /* firebase.auth().onAuthStateChanged(function (user) {
-            if (user) {
-                console.log("Usuario: " + JSON.stringify(user));
-                window.location.href = 'profile.html'
 
-            } else {
-                // User is signed out.
-                // ...
-            }
-        }); */
+
     </script>
 
-    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/signup.js"></script>
 </body>
 
 </html>

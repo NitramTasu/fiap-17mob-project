@@ -18,13 +18,9 @@
  */
 // Initialize Firebase
 
-
-
 function logar() {
     console.log("Logar");
 }
-
-
 
 document.getElementById("log").addEventListener("click", function () {
     var email = document.getElementById("email").value;
