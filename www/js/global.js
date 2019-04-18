@@ -7,10 +7,10 @@ var config = {
     messagingSenderId: "537544646420"
 };
 if (!firebase.apps.length) {
-    console.log("aaaaaa:" + firebase.apps.length);
+    console.log("iniciou Firebase");
     firebase.initializeApp(config)
 } else {
-    console.log("bbbb:");
+    console.log("Já iniciado");
     firebase.app()
 }
 

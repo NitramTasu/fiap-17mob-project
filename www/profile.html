@@ -35,12 +35,27 @@
     <link rel="stylesheet" type="text/css" href="css/index.css">
 
     <title>Hello World</title>
+
 </head>
 
 
 <body>
     <div class="app">
-        <input type="button" value="Sair" id="logout" />
+        <table class="tg">
+            <tr>
+                <th>E-mail</th>
+                <th id="data_email"></th>
+            </tr>
+            <tr>
+                <td>
+
+                </td>
+                <td>
+                    <input type="button" value="Sair" id="logout" />
+                </td>
+            </tr>
+        </table>
+
     </div>
 
     <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-app.js"></script>
@@ -50,6 +65,7 @@
 
     </script>
     <script>
+
         document.getElementById("logout").addEventListener("click", function () {
             console.log("clicou");
             firebase.auth().signOut().then(function () {
@@ -58,6 +74,10 @@
                 console.log(error);
             });
         });
+        var user = JSON.parse(sessionStorage.getItem('user'));
+        console.log("Usuario: " + sessionStorage.getItem('user'));
+
+        document.getElementById("data_email").textContent = user.email
     </script>
     <script type="text/javascript" src="js/global.js"></script>
 

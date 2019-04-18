@@ -22,24 +22,10 @@ function logar() {
     console.log("Logar");
 }
 
-document.getElementById("log").addEventListener("click", function () {
-    var email = document.getElementById("email").value;
-    var senha = document.getElementById("senha").value;
-
-    console.log("Valores: " + email + "  " + senha);
-
-    firebase.auth().signInWithEmailAndPassword(email, senha)
-        .then(function (firebaseUser) {
-            console.log("Logado com sucesso");
-        })
-        .catch(function (error) {
-            console.error(error);
-        });
-});
-
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
-        console.log("Usuario: " + JSON.stringify(user));
+
+        sessionStorage.setItem('user', JSON.stringify(user))
         window.location.href = 'profile.html'
 
     } else {
