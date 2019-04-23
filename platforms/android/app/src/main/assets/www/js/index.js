@@ -22,20 +22,16 @@ function logar() {
     console.log("Logar");
 }
 
+firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
 
-document.getElementById("log").addEventListener("click", function () {
-    var email = document.getElementById("email").value;
-    var senha = document.getElementById("senha").value;
+        sessionStorage.setItem('user', JSON.stringify(user))
+        window.location.href = 'profile.html'
 
-    console.log("Valores: " + email + "  " + senha);
-
-    firebase.auth().signInWithEmailAndPassword(email, senha)
-        .then(function (firebaseUser) {
-            console.log("Logado com sucesso");
-        })
-        .catch(function (error) {
-            console.error(error);
-        });
+    } else {
+        // User is signed out.
+        // ...
+    }
 });
 
 
