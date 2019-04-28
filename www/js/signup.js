@@ -9,9 +9,10 @@ document.getElementById("signup").addEventListener("click", function () {
 });
 
 function createUser(email, password, telefone) {
-    firebase.auth().createUserWithEmailAndPassword(email, password).then(function (user) {
-        console.log("Usuário criado: " + JSON.stringify(user));
-        writeUserData(user.uid, telefone)
+    firebase.auth().createUserWithEmailAndPassword(email, password).then(function (resp) {
+        console.log("Usuário criado: " + JSON.stringify(resp)); 
+        console.log("Usuário id: " + resp.user.uid); 
+        writeUserData(resp.user.uid, telefone)
     }).catch(function (error) {
         // Handle Errors here.
         var errorCode = error.code;
@@ -23,6 +24,7 @@ function createUser(email, password, telefone) {
 }
 
 function writeUserData(userId, telefone) {
+    console.log('Id do usuario'+userId)
     firebase.database().ref('users/' + userId).set({
         telefone: telefone
     }).then(function () {
