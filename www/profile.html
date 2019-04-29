@@ -55,20 +55,43 @@
         <div class="card" style="width: 18rem;">
             <img class="card-img-top" src="./img/logo.png" alt="Card image cap">
             <div class="card-body">
-                <table class="table">
-                    <thead class="thead-light">
-                        <tr>
-                            <th scope="col">E-mail</th>
-                            <th scope="col">Telefone</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th id="data_email"></th>
-                            <th id="data_phone"></th>
-                        </tr>
-                    </tbody>
-                </table>
+                <div id="info_table" hidden>
+                    <table class="table">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">E-mail</th>
+                                <th scope="col">Telefone</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th id="data_email"></th>
+                                <th id="data_phone"></th>
+                                <th>
+                                    <input class="btn" type="button" value="Editar" id="edit" />
+                                </th>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="form_update" hidden>
+                    <form method="POST">
+                        <div class="form-group">
+                            <label for="email">E-mail:</label>
+                            <input id="email" type="email" />
+                        </div>
+                        <div class="form-group">
+                            <label for="telefone">Telefone:</label>
+                            <input id="telefone" type="text" />
+                        </div>
+                        <div class="form-group">
+                            <input class="btn btn-outline-primary" type="button" value="Alterar" id="update" />
+                            <input class="btn btn-light" type="button" value="Cancel" id="cancel" />
+                        </div>
+                    </form>
+                </div>
                 <input class="btn btn-danger" type="button" value="Sair" id="logout" />
 
             </div>
@@ -87,6 +110,8 @@
     <script type="text/javascript" src="js/global.js"></script>
     <script>
 
+        document.getElementById("info_table").hidden = false
+
         document.getElementById("logout").addEventListener("click", function () {
             firebase.auth().signOut().then(function () {
                 window.location.href = 'index.html'
@@ -94,10 +119,17 @@
                 console.log(error);
             });
         });
-        var user = JSON.parse(sessionStorage.getItem('user'));
-        //console.log("Usuario: " + sessionStorage.getItem('user'));
 
+        document.getElementById("edit").addEventListener("click", function () {
+            document.getElementById("info_table").hidden = true
+            document.getElementById("form_update").hidden = false
+        });
+
+        var user = JSON.parse(sessionStorage.getItem('user'));
         document.getElementById("data_email").textContent = user.email
+
+        document.getElementById("email").value = user.email
+
 
         var userId = firebase.auth().currentUser;
         console.log("Usuario: " + user.uid);
@@ -105,6 +137,7 @@
             console.log("Usuario: " + JSON.stringify(snapshot.val()));
             var telefone = (snapshot.val() && snapshot.val().telefone) || 'Anonymous';
             document.getElementById("data_phone").textContent = telefone
+            document.getElementById("telefone").value = telefone
         });
 
     </script>
