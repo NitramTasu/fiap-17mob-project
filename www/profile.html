@@ -6,7 +6,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/profile.css">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
         crossorigin="anonymous">
@@ -30,6 +30,7 @@
             <img class="card-img-top" src="./img/logo.png" alt="Card image cap">
             <div class="card-body">
                 <div id="info_table" hidden>
+                    <input class="btn btn-primary" type="button" value="Editar" id="edit" />
                     <table class="table">
                         <thead class="thead-light">
                             <tr>
@@ -42,10 +43,6 @@
                             <tr>
                                 <th id="data_email"></th>
                                 <th id="data_phone"></th>
-                                <th>
-                                    <input class="btn" type="button" value="Editar" id="edit" />
-                                </th>
-
                             </tr>
                         </tbody>
                     </table>
@@ -54,11 +51,11 @@
                     <form method="POST">
                         <div class="form-group">
                             <label for="email">E-mail:</label>
-                            <input id="email" type="email" />
+                            <input class="form-control" id="email" type="email" />
                         </div>
                         <div class="form-group">
                             <label for="telefone">Telefone:</label>
-                            <input id="telefone" type="text" />
+                            <input class="form-control" id="telefone" type="text" />
                         </div>
                         <div class="form-group">
                             <input class="btn btn-outline-primary" type="button" value="Alterar" id="update" />
@@ -66,7 +63,7 @@
                         </div>
                     </form>
                 </div>
-                <input class="btn btn-danger" type="button" value="Sair" id="logout" />
+                <input class="btn btn-danger" type="button" value="Logout" id="logout" />
 
             </div>
         </div>
