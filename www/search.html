@@ -38,56 +38,34 @@
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="./search.html">Buscar Github</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Buscar Github</a>
                 </li>
             </ul>
         </div>
     </nav>
     <div class="app">
 
-
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="./img/logo.png" alt="Card image cap">
-            <div class="card-body">
-                <div id="info_table" hidden>
-                    <input class="btn btn-primary" type="button" value="Editar" id="edit" />
-                    <table class="table">
-                        <thead class="thead-light">
-                            <tr>
-                                <th scope="col">E-mail</th>
-                                <th scope="col">Telefone</th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th id="data_email"></th>
-                                <th id="data_phone"></th>
-                            </tr>
-                        </tbody>
-                    </table>
+        <div id="form_update" hidden>
+            <form method="POST">
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input class="form-control" id="email" type="email" />
                 </div>
-                <div id="form_update" hidden>
-                    <form method="POST">
-                        <div class="form-group">
-                            <label for="email">E-mail:</label>
-                            <input class="form-control" id="email" type="email" />
-                        </div>
-                        <div class="form-group">
-                            <label for="telefone">Telefone:</label>
-                            <input class="form-control" id="telefone" type="text" />
-                        </div>
-                        <div class="form-group">
-                            <input class="btn btn-outline-primary" type="button" value="Alterar" id="update" />
-                            <input class="btn btn-light" type="button" value="Cancel" id="cancel" />
-                        </div>
-                    </form>
+                <div class="form-group">
+                    <label for="telefone">Telefone:</label>
+                    <input class="form-control" id="telefone" type="text" />
                 </div>
-                <input class="btn btn-danger" type="button" value="Logout" id="logout" />
-
-            </div>
+                <div class="form-group">
+                    <input class="btn btn-outline-primary" type="button" value="Alterar" id="update" />
+                    <input class="btn btn-light" type="button" value="Cancel" id="cancel" />
+                </div>
+            </form>
         </div>
+        <input class="btn btn-danger" type="button" value="Logout" id="logout" />
+
+    </div>
+    </div>
 
 
     </div>
