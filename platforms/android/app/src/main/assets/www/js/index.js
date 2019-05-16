@@ -17,6 +17,23 @@
  * under the License.
  */
 // Initialize Firebase
+var user = firebase.auth().currentUser;
+console.log("teste" + user)
+
+document.getElementById("log").addEventListener("click", function () {
+    var email = document.getElementById("email").value;
+    var senha = document.getElementById("senha").value;
+
+    console.log("Valores: " + email + "  " + senha);
+
+    firebase.auth().signInWithEmailAndPassword(email, senha)
+        .then(function (firebaseUser) {
+            console.log("Logado com sucesso");
+        })
+        .catch(function (error) {
+            console.error(error);
+        });
+});
 
 function logar() {
     console.log("Logar");
@@ -33,7 +50,6 @@ firebase.auth().onAuthStateChanged(function (user) {
         // ...
     }
 });
-
 
 var app = {
     // Application Constructor

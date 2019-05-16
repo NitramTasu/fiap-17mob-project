@@ -6,7 +6,8 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-    <link rel="stylesheet" type="text/css" href="css/profile.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
         crossorigin="anonymous">
@@ -18,67 +19,46 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 
-    <title>Hello World</title>
-
+    <title>Busca de usuário no Github</title>
 </head>
 
+<script>
+
+    cordova.plugin.http.sendRequest('https://google.com/', options, function (response) {
+        // prints 200
+        console.log(response.status);
+    }, function (response) {
+        // prints 403
+        console.log(response.status);
+
+        //prints Permission denied
+        console.log(response.error);
+    });
+
+</script>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Menu</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Buscar Github</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
     <div class="app">
+        <form method="POST">
+            <div class="form-group">
+                <label for="lname">Buscar usuário</label>
+                <input class="form-control" id="user_search" type="text" />
+            </div>
+            <div class="form-group">
+                <a class="btn btn-primary" class="waves-effect waves-light btn" id="bt_search" class="btn btn-success">Buscar</a>
+            </div>
+        </form>
 
-        <div id="form_update" hidden>
-            <form method="POST">
-                <div class="form-group">
-                    <label for="email">E-mail:</label>
-                    <input class="form-control" id="email" type="email" />
-                </div>
-                <div class="form-group">
-                    <label for="telefone">Telefone:</label>
-                    <input class="form-control" id="telefone" type="text" />
-                </div>
-                <div class="form-group">
-                    <input class="btn btn-outline-primary" type="button" value="Alterar" id="update" />
-                    <input class="btn btn-light" type="button" value="Cancel" id="cancel" />
-                </div>
-            </form>
-        </div>
-        <input class="btn btn-danger" type="button" value="Logout" id="logout" />
+        <div><img id="avatar_url" class="avatar"></img></div>
+        <div id="user_name"></div>
 
     </div>
-    </div>
 
-
-    </div>
     <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase-database.js"></script>
     <script src="https://cdn.firebase.com/libs/firebaseui/3.0.0/firebaseui.js"></script>
-    <script>
-
-    </script>
     <script type="text/javascript" src="js/global.js"></script>
-    <script type="text/javascript" src="js/profile.js"></script>
-
+    <script type="text/javascript" src="js/search.js"></script>
 
 </body>
 
